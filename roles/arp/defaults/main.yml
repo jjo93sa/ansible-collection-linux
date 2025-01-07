@@ -1,0 +1,3 @@
+---
+# Don't reboot for arp config changes
+arp_apply_config: false
