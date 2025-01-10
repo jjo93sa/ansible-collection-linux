@@ -7,8 +7,8 @@
   ansible.builtin.copy:
     dest: /etc/sysctl.d/15-fixarp.conf
     content: |
-      net.ipv4.conf.all.arp_ignore={{ arp_arp_ignore | default(arp_arp_ignore_default) }}
-      net.ipv4.conf.all.arp_announce={{ arp_arp_announce | default(arp_arp_announce) }}
+      net.ipv4.conf.all.arp_ignore={{ arp_arp_ignore if arp_arp_ignore is defined | default(arp_arp_ignore_default) }}
+      net.ipv4.conf.all.arp_announce={{ arp_arp_announce if arp_arp_announce is defined | default(arp_arp_announce) }}
     mode: "0644"
     owner: root
     group: root
